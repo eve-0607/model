@@ -1,0 +1,13 @@
+# Provisional only. TASK-002 must replace these with checkpoint-verified candidates.
+candidates:
+  - name: source_reference
+    total_parameters: source
+    active_parameters: source
+  - name: eve_a
+    total_parameters: 100b-200b
+    active_parameters: 20b-30b
+    status: unapproved
+  - name: eve_b
+    total_parameters: 100b-200b
+    active_parameters: 20b-30b
+    status: unapproved

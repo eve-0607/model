@@ -1,0 +1,26 @@
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+.env.*
+*.pem
+*.key
+
+# Large model artifacts
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.npy
+*.npz
+*.arrow
+*.parquet
+*.jsonl
+
+/checkpoints/
+/data/
+/runs/
+/outputs/
+/cache/

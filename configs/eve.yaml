@@ -1,0 +1,32 @@
+# Provisional Eve configuration. TASK-002 replaces placeholders with verified values.
+model:
+  name: Eve
+  total_parameter_target: "100B-200B"
+  active_parameter_target: "20B-30B"
+  tokenizer: source_qwen
+  architecture_status: unapproved
+
+moe:
+  experts: null
+  expert_hidden_size: null
+  routed_top_k: null
+  shared_expert: true
+
+memory:
+  enabled: false
+  type: "ngram_conditional"
+  parameters_target: null
+  host_offload: true
+
+mtp:
+  enabled: false
+  layers: null
+
+draft:
+  enabled: false
+  type: "eve_draft"
+
+training:
+  dtype: bf16
+  teacher_kd: false
+  personalization: false

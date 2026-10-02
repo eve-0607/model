@@ -1,0 +1,23 @@
+# TASK-010 — White-box KD loss
+
+## Objective
+Implement hard CE plus temperature-scaled teacher KD. Teacher parameters must receive no gradients. Add analytical toy tests.
+
+## Read first
+- `AGENTS.md`
+- relevant `SPEC/` files
+- relevant `RESEARCH/` notes
+
+## Scope
+Implement only this task. Preserve source checkpoints and private data.
+
+## Acceptance criteria
+- Required implementation/tests exist.
+- Results are actually executed and recorded.
+- No fabricated metrics.
+- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
+- Large/long H100 jobs are launched only when explicitly required by this task.
+
+## Dependencies
+Previous: TASK-009
+Next: TASK-011

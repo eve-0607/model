@@ -12,6 +12,20 @@ Initial design envelope:
 
 These are design targets, not the final architecture. TASK-002 must inspect the actual Qwen checkpoint and perform the accounting before any shape-changing decision is frozen.
 
+## Execution architecture
+
+The repository is developed from an HP OmniBook X Flip 14 with an Intel Core Ultra 7 285V and 32 GB RAM. The laptop is the development/control plane: editing, Git, lightweight tests, manifests, and orchestration.
+
+Heavy model work runs on the university GPU cluster through:
+
+laptop -> SSH -> mgmt01 (10.16.1.50) -> PBS Professional -> H100 GPU node
+
+mgmt01 is the internet-enabled gateway. GPU nodes have no internet access and are reachable only through mgmt01. All GPU jobs therefore consume pre-staged dependencies, model assets, datasets, and code without runtime downloads.
+
+Cluster-specific PBS queue/resource/module settings are intentionally discovered during TASK-001 rather than guessed in the repository.
+
+See AGENTS.md, SPEC/08_DISTRIBUTED.md, SPEC/09_AGENT_EXECUTION.md, and infra/README.md for the execution contract.
+
 ## What Eve is
 
 Eve is a Qwen-derived research model. Foundation weights and published mechanisms remain attributed to their authors. The intended Eve work is architecture selection and modification, checkpoint-surgery methodology, large-active-budget sparse routing, distillation and recovery training, longitudinal personalization, evaluation methodology, and optional conditional-memory/speculative-drafting integration.

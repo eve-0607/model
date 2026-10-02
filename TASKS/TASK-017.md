@@ -1,23 +1,27 @@
 # TASK-017 — Personalization SFT
 
 ## Objective
-Train Eve on the sanitized behavioral corpus while monitoring general capability regression.
+Train Eve on the sanitized behavioral corpus while preserving general language-model capability.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/03_TRAINING.md
+- SPEC/05_PERSONALIZATION.md
+- SPEC/06_EVALUATION.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Experiment
+Compare at least:
+- Eve architecture before personalization;
+- Eve + behavioral SFT;
+- a matched non-personalized training control where feasible.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+Track general capability and personalization metrics.
 
-## Dependencies
-Previous: TASK-016
-Next: TASK-018
+## Acceptance
+- training checkpoint is loadable;
+- held-out personalization results are recorded;
+- general-capability regression is measured;
+- run lineage is complete.
+
+## Next
+TASK-018

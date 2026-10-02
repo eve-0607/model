@@ -1,23 +1,28 @@
-# TASK-014 — Personal corpus pipeline
+# TASK-014 — Personal corpus cleaning and segmentation
 
 ## Objective
-Clean, deduplicate, segment, classify, and split private conversation data. Never commit the raw export.
+Turn normalized conversations into reproducible, sanitized training and holdout datasets.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/05_PERSONALIZATION.md
+- SPEC/10_EXPERIMENT_DESIGN.md
+- SPEC/11_DATA_GOVERNANCE.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+- remove tool traces/noise/empty turns;
+- deduplicate exact and near-duplicate examples;
+- segment conversations into training units;
+- classify stable behavioral data vs mutable state;
+- create conversation-level and chronological holdouts;
+- emit dataset statistics and hashes.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- every source record follows a deterministic disposition;
+- no conversation overlaps between train and holdout;
+- chronological holdout is strictly later than its training cutoff;
+- derived datasets are reproducible;
+- no raw/private data are committed.
 
-## Dependencies
-Previous: TASK-013
-Next: TASK-015
+## Next
+TASK-015

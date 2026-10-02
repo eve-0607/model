@@ -1,23 +1,25 @@
 # TASK-021 — Architecture ablations
 
 ## Objective
-Measure active expert budget and topology choices independently from personalization.
+Measure the effect of Eve's active-capacity/topology choices independently of personalization.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/01_ARCHITECTURE.md
+- SPEC/10_EXPERIMENT_DESIGN.md
+- RESEARCH/MOESURGERY.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+Run matched small-to-medium experiments over the selected candidate family, varying one major architectural factor at a time where possible:
+- active expert budget;
+- expert topology;
+- hybrid layer allocation;
+- other frozen design choices.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- training/evaluation budget is documented;
+- parameter counts and measured FLOPs/throughput are reported;
+- differences can be attributed to the changed factor with stated limitations.
 
-## Dependencies
-Previous: TASK-020
-Next: TASK-022
+## Next
+TASK-022

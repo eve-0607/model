@@ -1,23 +1,28 @@
 # TASK-025 — Final research package
 
 ## Objective
-Produce the final benchmark, ablation report, provenance table, architecture/training writeup, clean demo, reproduction instructions, and limitations.
+Produce a professor-ready engineering and research package.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/00_PROJECT.md
+- SPEC/06_EVALUATION.md
+- SPEC/10_EXPERIMENT_DESIGN.md
+- docs/PROVENANCE.md
+- docs/MASTER_PLAN.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Deliverables
+- final architecture document;
+- checkpoint lineage/provenance;
+- training recipe;
+- dataset methodology without exposing raw private data;
+- benchmark and ablation results;
+- limitations/failure modes;
+- clean inference/demo command;
+- reproducibility instructions;
+- comparison against the source/reference model and baselines.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+A clean environment can reproduce the documented demo and the headline benchmark results from versioned manifests/configuration.
 
-## Dependencies
-Previous: TASK-024
-Next: —
+This task must not invent a positive conclusion; report what worked, what did not, and what remains uncertain.

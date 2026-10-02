@@ -1,23 +1,22 @@
 # TASK-018 — Preference optimization
 
 ## Objective
-Train on correction/preference pairs. Compare behavior and general-capability metrics before and after.
+Apply pairwise preference optimization using corrections/preferences and teacher candidate comparisons.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/05_PERSONALIZATION.md
+- SPEC/06_EVALUATION.md
+- SPEC/03_TRAINING.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+Select a documented preference objective (DPO or another justified objective), define reference policy, and version the pair dataset.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- objective and hyperparameters are logged;
+- preference train/holdout split is fixed;
+- before/after personalization metrics are compared;
+- general-capability regression is checked.
 
-## Dependencies
-Previous: TASK-017
-Next: TASK-019
+## Next
+TASK-019

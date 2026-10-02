@@ -1,19 +1,23 @@
 # Eve Architecture
 
-Eve is built around three conditionality axes:
+## Design axes
 
-1. **Conditional computation** — sparse MoE.
-2. **Conditional memory** — n-gram/Engram-style retrieval.
-3. **Conditional sequence processing** — hybrid recurrent/delta-style and sparse-attention blocks.
+1. Conditional computation: sparse MoE routing.
+2. Conditional memory: n-gram/Engram-style lookup.
+3. Conditional sequence processing: hybrid GDN/delta-style and sparse-attention blocks.
 
-MTP is both a training signal and an inference acceleration mechanism. Eve-Draft is an optional separate speculative decoding subsystem.
+MTP and speculative drafting are auxiliary training/inference mechanisms, not a reason to redesign every backbone block.
 
-## Initial design rule
-Keep the source tokenizer and core representation compatible until there is a measured reason to change them.
+## Initial strategy
 
-Do not freeze expert count, expert width, or top-k before TASK-002 audits real tensor shapes and parameter counts.
+Start from the source representation and tokenizer whenever possible. TASK-002 freezes the concrete Eve topology only after inspecting real checkpoint tensors.
+
+## Parameter accounting
+
+Reports must separately publish total model parameters, dense always-active parameters, routed expert parameters active/token, shared expert parameters active/token, conditional-memory table size, memory rows/bytes fetched/token, and MTP/draft-only parameters.
+
+With conditional memory, the phrase active parameters is ambiguous unless these components are reported separately.
 
 ## Provenance
-- Inherited: Qwen reference backbone and compatible infrastructure.
-- Adapted: published ideas from conditional memory, MTP, and speculative decoding literature.
-- Eve-original: the final active-capacity topology, checkpoint-surgery mapping, distillation/personalization recipe, evaluation protocol, and integrated drafting system.
+
+Qwen is the inherited substrate. Conditional-memory, MTP, and speculative-drafting ideas are adapted from published work. Eve's final topology, surgery mapping, training recipe, personalization pipeline, and integration are project work to be validated experimentally.

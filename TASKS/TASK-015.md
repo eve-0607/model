@@ -1,23 +1,27 @@
 # TASK-015 — Corrections and preferences
 
 ## Objective
-Extract explicit user corrections, dissatisfaction signals, preference statements, and successful revisions with provenance.
+Extract naturally occurring supervision about what the user accepts, rejects, or asks to change.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/05_PERSONALIZATION.md
+- SPEC/06_EVALUATION.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+Detect and preserve:
+- explicit corrections;
+- explicit style/preferences;
+- dissatisfaction/rejection when unambiguous;
+- successful revisions after a correction.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+Each example must retain private provenance internally and a public-safe identifier.
 
-## Dependencies
-Previous: TASK-014
-Next: TASK-016
+## Acceptance
+- extraction is reproducible;
+- ambiguous signals are flagged rather than treated as labels;
+- train/holdout separation is preserved;
+- a manually inspectable sanitized sample is produced locally.
+
+## Next
+TASK-016

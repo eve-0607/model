@@ -1,23 +1,27 @@
 # TASK-022 — Conditional-memory experiment
 
 ## Objective
-Implement and evaluate an n-gram/Engram-style conditional-memory module, including size and host-memory/offload experiments.
+Evaluate a dedicated n-gram/Engram-style conditional-memory subsystem separately from the source Qwen N-gram Embedding path.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/01_ARCHITECTURE.md
+- SPEC/12_FEATURE_COMPATIBILITY.md
+- RESEARCH/ENGRAM.md
+- RESEARCH/MEMORY_GRAFTING.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+- hash/addressing path;
+- lookup table;
+- context-aware fusion/gating;
+- configurable memory size;
+- optional host-memory/offload path.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- hash/lookup collisions and shapes are tested;
+- no-memory, source-memory, and Eve-memory conditions are distinguishable;
+- memory bandwidth/latency is measured;
+- capability effect is evaluated under matched conditions.
 
-## Dependencies
-Previous: TASK-021
-Next: TASK-023
+## Next
+TASK-023

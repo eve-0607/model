@@ -1,13 +1,24 @@
 # TASK-006 — Single-GPU correctness
 
 ## Objective
-Prove the modified model can forward, backpropagate, save, and reload on one GPU.
+Prove the full modified Eve model can run one forward/backward/save/reload cycle on one GPU.
+
+## READ FIRST
+- AGENTS.md
+- SPEC/01_ARCHITECTURE.md
+- SPEC/02_CHECKPOINTS.md
+- DECISIONS.md
 
 ## Acceptance
-- One training step completes.
-- Loss/gradients are finite.
-- Reference-preserved modules match within defined tolerance.
-- Save/reload preserves outputs.
+- one training step completes;
+- loss and gradients are finite;
+- save/reload preserves outputs within tolerance;
+- source-preserved portions match reference behavior;
+- memory usage is recorded;
+- a smoke checkpoint is saved outside Git.
+
+## Stop condition
+Do not start multi-GPU work until this task passes.
 
 ## Next
 TASK-007

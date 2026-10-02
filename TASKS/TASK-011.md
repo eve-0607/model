@@ -1,23 +1,20 @@
 # TASK-011 — Distillation training
 
 ## Objective
-Run CE-only and CE+KD experiments under matched data/compute/evaluation conditions and record results.
+Run controlled CE-only vs CE+KD distillation using the same modified Eve architecture and data.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/03_TRAINING.md
+- SPEC/04_DISTILLATION.md
+- SPEC/10_EXPERIMENT_DESIGN.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Acceptance
+- same corpus/split and evaluation protocol;
+- teacher checkpoint lineage recorded;
+- KD temperature/coefficient logged;
+- training and validation metrics recorded;
+- checkpoint reload verified.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
-
-## Dependencies
-Previous: TASK-010
-Next: TASK-012
+## Next
+TASK-012

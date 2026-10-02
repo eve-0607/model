@@ -1,23 +1,27 @@
 # TASK-020 — No-system-prompt persistence
 
 ## Objective
-Blindly compare baseline, prompt-personalized baseline, and Eve on held-out interactions with minimal operational prompting.
+Test whether personalization remains measurable when the long persona prompt is removed.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/05_PERSONALIZATION.md
+- SPEC/06_EVALUATION.md
+- SPEC/10_EXPERIMENT_DESIGN.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+Compare:
+1. unmodified student with minimal operational prompt;
+2. student with fixed persona prompt;
+3. Eve with minimal operational prompt.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+Blind the model identity for evaluation where practical.
 
-## Dependencies
-Previous: TASK-019
-Next: TASK-021
+## Acceptance
+- persona prompt was authored before evaluation and did not use holdout content;
+- prompt lengths/configurations are recorded;
+- held-out metrics and qualitative error categories are reported;
+- no single anecdote is treated as proof.
+
+## Next
+TASK-021

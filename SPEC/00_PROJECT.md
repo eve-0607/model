@@ -1,24 +1,30 @@
 # Eve Project Specification
 
 ## Objective
-Build Eve: a general-purpose, large sparse language model derived from the available BF16 Qwen Flash Next checkpoint, with a substantially larger active compute budget and persistent behavioral personalization.
+
+Develop Eve as a general-purpose sparse model derived from the supplied BF16 Qwen Flash Next checkpoint, with a larger active compute budget, modern hybrid sequence processing, optional conditional memory, MTP/speculative inference, and weight-level personalization from longitudinal interaction data.
+
+## Scope
+
+1. Reference reproduction.
+2. Architecture audit and surgery.
+3. Capability recovery/distillation.
+4. Personalization.
+5. Evaluation.
+6. Optional memory and drafting experiments.
 
 ## Target envelope
-Initial design envelope: ~100B–200B total parameters and ~20B–30B active parameters/token. These are targets, not facts; TASK-002 must audit the actual source checkpoint and freeze the concrete topology.
 
-## Core work
-- Qwen-derived backbone/reference path
-- controlled architecture surgery
-- large sparse MoE active budget
-- hybrid sequence processing
-- conditional n-gram / Engram-style memory experiment
-- MTP
-- optional Eve-Draft speculative decoding
-- white-box teacher distillation
-- longitudinal conversational personalization
-- rigorous evaluation and ablation
+Initial target: ~100B–200B total parameters and ~20B–30B active parameters/token.
+
+The source checkpoint may contain non-text components. TASK-001 must inventory modalities/components. Eve v1 is text-generation-first unless TASK-002 establishes a justified multimodal preservation path.
+
+## Success evidence
+
+The final report must show source/reference reproduction, exact Eve parameter accounting, checkpoint lineage, recovery/distillation methodology, held-out personalization evaluation, capability-regression evaluation, no-system-prompt persistence, and major ablations.
 
 ## Non-goals
-- Repretraining a frontier model from random initialization.
-- Claiming ownership of external model weights or published mechanisms.
-- Training directly on the raw private ChatGPT export.
+
+- Frontier-scale pretraining from random initialization.
+- Passing external model mechanisms off as Eve-original.
+- Treating the raw private export as an unrestricted training corpus.

@@ -1,23 +1,26 @@
 # TASK-007 — Distributed H100 execution
 
 ## Objective
-Bring Eve to multi-GPU execution. Require a 2-GPU smoke test, expert communication validation, checkpoint save/reload, and a documented 5-GPU dry run.
+Move the validated Eve model to distributed execution on the available H100 cluster.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/08_DISTRIBUTED.md
+- SPEC/12_FEATURE_COMPATIBILITY.md
+- DECISIONS.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+Select and document TP/EP/PP/CP only after measuring model layout and communication. Use Megatron Core or another justified distributed substrate.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- 2-GPU forward/backward smoke test;
+- expert communication validated;
+- distributed checkpoint save/reload;
+- 5-GPU dry-run;
+- launch config and environment captured.
 
-## Dependencies
-Previous: TASK-006
-Next: TASK-008
+## Stop condition
+No long training run.
+
+## Next
+TASK-008

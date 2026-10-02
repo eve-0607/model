@@ -1,16 +1,17 @@
 # Provenance
 
-| Component | Origin | Eve status |
+| Component | Origin | Eve treatment |
 |---|---|---|
-| Qwen Flash Next pretrained weights/backbone | Qwen | inherited substrate |
-| Hybrid sequence processing | Qwen / cited literature | adapted/inherited |
-| Sparse MoE concepts | established literature / source model | adapted |
-| Conditional n-gram memory | Engram / related work | adapted |
-| MTP | DeepSeek / related work | adapted |
-| Speculative drafting | DSpark / related work | adapted |
-| White-box KD | distillation literature | adapted |
-| Eve topology / checkpoint surgery | this project | Eve-original |
-| Personalization corpus pipeline | this project | Eve-original |
-| Evaluation protocol | this project | Eve-original |
+| Qwen Flash Next weights/reference | Qwen | inherited substrate |
+| GDN + sparse attention backbone concepts | Qwen / cited literature | inherited/adapted |
+| Source N-gram Embedding | Qwen | inherited component where retained |
+| Engram conditional memory | DeepSeek research | adapted experiment |
+| MTP | DeepSeek / Megatron | adapted component |
+| DSpark-style speculation | DeepSeek research | adapted serving experiment |
+| White-box KD | distillation literature | adapted method |
+| Sparse-upcycling / function-preserving expansion ideas | prior research | design inspiration |
+| Eve topology and checkpoint surgery | this project | project work |
+| Eve personalization/data methodology | this project | project work |
+| Evaluation protocol | this project | project work |
 
-Checkpoint ancestry and licenses must be recorded for every external model used.
+Every external checkpoint used later needs: model ID, revision/hash, license/terms, architecture, tokenizer, lineage, and intended use.

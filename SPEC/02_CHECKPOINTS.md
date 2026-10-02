@@ -2,14 +2,18 @@
 
 Source checkpoints are immutable.
 
-Every conversion must emit:
-- source config snapshot
-- source checkpoint hash
-- output config
-- tensor mapping
-- conversion version
-- logs
+Every generated checkpoint must record source identifier/revision/hash, source config, Eve config, Git SHA, conversion version, tensor mapping, dtype, and validation report.
 
-Shape-changing operations require deterministic synthetic-tensor tests before touching real model weights.
+## Conversion rules
 
-Never store checkpoints in Git.
+1. Prove mappings on synthetic tensors.
+2. Convert a tiny test checkpoint.
+3. Validate untouched paths numerically.
+4. Validate transformed paths against defined invariants.
+5. Convert the production checkpoint only after the above pass.
+
+Never overwrite the source checkpoint and never commit checkpoint bytes.
+
+## Lineage
+
+Every checkpoint must answer: which source weights, code, data, configuration, and conversion produced this artifact?

@@ -1,23 +1,27 @@
 # TASK-012 — Multi-token prediction
 
 ## Objective
-Implement MTP as a separable training/inference subsystem. Verify future-token targets, loss, save/reload, and disable-path behavior.
+Implement MTP as a separable subsystem and verify training/inference behavior.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/07_MTP_DRAFT.md
+- SPEC/08_DISTRIBUTED.md
+- RESEARCH/MTP.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+- future-token target construction;
+- MTP module(s);
+- MTP loss;
+- configurable loss weighting;
+- optional speculative verification interface.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- future-token indices are analytically verified;
+- MTP loss is numerically tested;
+- save/reload works;
+- disabling MTP restores the non-MTP path;
+- distributed placement follows the documented compatibility constraints.
 
-## Dependencies
-Previous: TASK-011
-Next: TASK-013
+## Next
+TASK-013

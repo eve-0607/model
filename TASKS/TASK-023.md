@@ -1,23 +1,23 @@
 # TASK-023 — Auxiliary teacher and merge experiments
 
 ## Objective
-Evaluate additional teachers or compatible weight-space merges only when lineage, architecture, tokenizer, and licensing are verified.
+Evaluate additional teacher models and compatible distilled checkpoints as optional side experiments.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/04_DISTILLATION.md
+- RESEARCH/MERGING.md
+- docs/PROVENANCE.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Gate
+A checkpoint can enter a weight-space merge experiment only if architecture, tokenizer/vocabulary, initialization lineage, tensor semantics, and licensing/provenance are documented as compatible.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+Otherwise use it only for response generation, critique, or evaluation.
 
-## Dependencies
-Previous: TASK-022
-Next: TASK-024
+## Acceptance
+- at least one explicit inclusion/exclusion rationale is recorded;
+- no incompatible tensor merge occurs;
+- any merged candidate has a complete ancestry manifest.
+
+## Next
+TASK-024

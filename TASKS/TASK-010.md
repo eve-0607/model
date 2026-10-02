@@ -1,23 +1,29 @@
 # TASK-010 — White-box KD loss
 
 ## Objective
-Implement hard CE plus temperature-scaled teacher KD. Teacher parameters must receive no gradients. Add analytical toy tests.
+Implement the mathematical KD loss used by Eve.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/04_DISTILLATION.md
+- SPEC/03_TRAINING.md
+- RESEARCH/DISTILLATION.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+Support:
+- hard-token CE;
+- temperature-scaled teacher/student distributions;
+- masked KL loss;
+- configurable CE/KD coefficients;
+- detached teacher gradients;
+- optional compact sparse-logit path.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- analytical toy example matches a hand-computed result;
+- teacher parameters have no gradients;
+- student gradients are nonzero on nontrivial input;
+- temperature and coefficients are serialized in the run config;
+- numerical stability is tested.
 
-## Dependencies
-Previous: TASK-009
-Next: TASK-011
+## Next
+TASK-011

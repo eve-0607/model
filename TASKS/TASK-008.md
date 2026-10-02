@@ -1,23 +1,32 @@
 # TASK-008 — Architecture recovery training
 
 ## Objective
-Run controlled recovery training on licensed/generic data. Compare validation behavior against the source/reference model before proceeding to expensive runs.
+Recover the modified model's language-model function before personalizing it.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/03_TRAINING.md
+- SPEC/06_EVALUATION.md
+- SPEC/10_EXPERIMENT_DESIGN.md
+- RESEARCH/MOESURGERY.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Experiment
+Run short controlled comparisons:
+1. modified architecture + CE;
+2. modified architecture + source-teacher KD;
+3. source/reference control.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+Use a licensed/generic corpus and fixed validation data.
 
-## Dependencies
-Previous: TASK-007
-Next: TASK-009
+## Acceptance
+- all runs use matched evaluation protocol;
+- validation loss/perplexity and training throughput are recorded;
+- routing statistics are recorded;
+- at least one recovery checkpoint is loadable;
+- experiment lineage is complete.
+
+## Stop condition
+Do not proceed to massive-scale training unless the recovery experiment passes its defined gates.
+
+## Next
+TASK-009

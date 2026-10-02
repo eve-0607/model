@@ -6,7 +6,7 @@ __pycache__/
 *.pem
 *.key
 
-# Large model artifacts
+# Model/checkpoint artifacts
 *.safetensors
 *.bin
 *.pt
@@ -15,12 +15,21 @@ __pycache__/
 *.gguf
 *.npy
 *.npz
-*.arrow
-*.parquet
-*.jsonl
 
-/checkpoints/
+# Private/large datasets and exports
+*.jsonl
+*.parquet
+*.arrow
+*.zip
+*.7z
 /data/
+/datasets/
+/checkpoints/
 /runs/
 /outputs/
+/artifacts/
 /cache/
+
+# IDE
+.vscode/
+.idea/

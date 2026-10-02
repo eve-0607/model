@@ -1,13 +1,30 @@
 # TASK-005 — Router and expert routing
 
 ## Objective
-Implement sparse routing, capacity behavior, load statistics, and deterministic tests.
+Implement Eve's sparse router for the selected topology and verify routing behavior.
+
+## READ FIRST
+- AGENTS.md
+- SPEC/01_ARCHITECTURE.md
+- SPEC/12_FEATURE_COMPATIBILITY.md
+- DECISIONS.md
+
+## Implement
+- routing logits;
+- top-k selection;
+- routing normalization;
+- capacity/overflow policy if used;
+- load statistics;
+- deterministic test mode;
+- distributed-ready routing interfaces.
 
 ## Acceptance
-- Routing is deterministic for fixed inputs.
-- Top-k/capacity behavior matches the spec.
-- Selected experts receive gradients.
-- Toy training has finite loss and gradients.
+- fixed input gives reproducible routing;
+- expert counts match configured topology;
+- routing probabilities are valid;
+- selected experts receive gradients;
+- load statistics are emitted;
+- toy backward pass remains finite.
 
 ## Next
 TASK-006

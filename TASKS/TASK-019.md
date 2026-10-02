@@ -1,23 +1,27 @@
 # TASK-019 — Evaluation harness
 
 ## Objective
-Implement reproducible benchmarks for capability, personalization, persistence, regression, latency, throughput, and speculative acceptance.
+Build a reproducible evaluation system covering capability, personalization, persistence, regression, and inference.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/06_EVALUATION.md
+- SPEC/10_EXPERIMENT_DESIGN.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+- fixed benchmark manifest;
+- model adapters;
+- deterministic decoding mode where appropriate;
+- metric registry;
+- JSON/CSV/Markdown result outputs;
+- blind personal-preference evaluation interface;
+- latency/throughput measurement.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- every baseline runs through the same harness;
+- benchmark/version/config hashes are recorded;
+- results can be regenerated from manifests;
+- no evaluation prompt comes from a training split.
 
-## Dependencies
-Previous: TASK-018
-Next: TASK-020
+## Next
+TASK-020

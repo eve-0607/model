@@ -4,10 +4,16 @@
 
 Current design envelope:
 - total parameters: ~100B–200B
-- active parameters/token: ~20B–30B
+- active neural parameters/token: ~20B–30B
 
-These are target ranges only.
+The source Qwen3.8-Flash-Next reference currently reports a 125B main model plus a 51B N-gram embedding table and approximately 6B activated per token. Those source figures are context for the audit, not Eve's final values.
 
-TASK-002 must calculate the actual source model structure and propose concrete expert count, expert width, routing top-k, layer schedule, conditional-memory budget, and MTP configuration.
+The final architecture must separately report:
+- dense always-active parameters;
+- routed expert parameters active/token;
+- shared-expert parameters active/token;
+- conditional-memory table size;
+- memory rows/bytes retrieved/token;
+- MTP/draft-only parameters.
 
-Do not launch full-scale training before the topology decision is recorded in DECISIONS.md.
+Do not collapse these into one number without a definition.

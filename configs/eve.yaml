@@ -1,32 +1,44 @@
-# Provisional Eve configuration. TASK-002 replaces placeholders with verified values.
+# Provisional configuration. TASK-002 replaces nulls with verified architecture values.
 model:
   name: Eve
+  architecture_status: unapproved
+  tokenizer: source_qwen
   total_parameter_target: "100B-200B"
   active_parameter_target: "20B-30B"
-  tokenizer: source_qwen
-  architecture_status: unapproved
 
 moe:
   experts: null
   expert_hidden_size: null
   routed_top_k: null
-  shared_expert: true
+  shared_expert: null
+  router_type: null
+
+sequence:
+  hybrid_pattern: source_then_experiment
+  gdn_layers: null
+  attention_layers: null
 
 memory:
-  enabled: false
-  type: "ngram_conditional"
-  parameters_target: null
-  host_offload: true
+  source_ngram:
+    enabled: inherit
+    host_offload: true
+  engram_experiment:
+    enabled: false
+    parameters_target: null
+    hash_config: null
 
 mtp:
   enabled: false
-  layers: null
+  num_layers: null
+  loss_weight: null
 
 draft:
   enabled: false
-  type: "eve_draft"
+  type: eve_draft
 
 training:
   dtype: bf16
   teacher_kd: false
+  kd_temperature: null
   personalization: false
+  preference_optimization: false

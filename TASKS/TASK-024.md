@@ -1,23 +1,26 @@
 # TASK-024 — Eve-Draft speculative decoding
 
 ## Objective
-Implement a lightweight speculative draft path and measure tokens/sec, latency, acceptance length, memory, and quality.
+Implement and evaluate a separate speculative draft/verification path.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/07_MTP_DRAFT.md
+- SPEC/12_FEATURE_COMPATIBILITY.md
+- RESEARCH/DSPARK.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+- candidate drafting;
+- target-model verification;
+- acceptance metrics;
+- batch/concurrency-aware scheduling interface if justified.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- output correctness is preserved;
+- tokens/sec and latency are measured;
+- acceptance length/rate is recorded;
+- memory use is recorded;
+- comparison uses identical prompts and serving conditions.
 
-## Dependencies
-Previous: TASK-023
-Next: TASK-025
+## Next
+TASK-025

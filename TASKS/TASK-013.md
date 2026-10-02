@@ -1,23 +1,27 @@
 # TASK-013 — ChatGPT export parser
 
 ## Objective
-Parse the actual exported ChatGPT archive schema discovered at runtime into normalized conversations. Do not assume a schema.
+Parse the actual ChatGPT export format into a normalized internal conversation schema.
 
-## Read first
-- `AGENTS.md`
-- relevant `SPEC/` files
-- relevant `RESEARCH/` notes
+## READ FIRST
+- AGENTS.md
+- SPEC/05_PERSONALIZATION.md
+- SPEC/11_DATA_GOVERNANCE.md
 
-## Scope
-Implement only this task. Preserve source checkpoints and private data.
+## Implement
+- archive/extraction discovery;
+- schema detection from the provided export;
+- normalization of conversation IDs, timestamps, roles, message content, and relevant metadata;
+- preservation of private source IDs for local traceability;
+- malformed-record reporting.
 
-## Acceptance criteria
-- Required implementation/tests exist.
-- Results are actually executed and recorded.
-- No fabricated metrics.
-- Any architecture ambiguity is recorded in `DECISIONS.md` and the task stops.
-- Large/long H100 jobs are launched only when explicitly required by this task.
+## Acceptance
+- complete export parses;
+- counts of conversations/messages/tokens or character proxies are reported;
+- malformed/unsupported records are logged without aborting the whole corpus;
+- raw text is not written to logs by default;
+- parser has fixture tests from sanitized examples;
+- raw archive remains outside Git.
 
-## Dependencies
-Previous: TASK-012
-Next: TASK-014
+## Next
+TASK-014
